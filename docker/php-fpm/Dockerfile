@@ -24,6 +24,7 @@ COPY api.zip /tmp/api.zip
 
 RUN mkdir -p /var/www/cakephpapp && \
 	cd /tmp && \
-	unzip api.zip -d /var/www/cakephpapp
+	unzip api.zip -d /var/www/cakephpapp && \
+    chown www-data:www-data -R /var/www/cakephpapp
 	
 WORKDIR "/var/www/cakephpapp"
