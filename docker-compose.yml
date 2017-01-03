@@ -1,10 +1,9 @@
 cakephpapp-webserver:
-  image: phpdockerio/nginx:latest
-  container_name: webserver-pub-api
-  volumes:
-    - $PWD/conf/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  build: .
+  dockerfile: docker/nginx/Dockerfile
+  container_name: webserver-publications-api
   ports:
-    - "8001:80"
+    - "80:80"
   links:
     - cakephpapp-php-fpm
 
@@ -15,3 +14,4 @@ cakephpapp-php-fpm:
   environment:
     - DEBUG=1
     - DATABASE_URL=mysql://sinc:q6FM8r@fich.unl.edu.ar/sinc
+
